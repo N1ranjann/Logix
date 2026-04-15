@@ -1,6 +1,5 @@
 # Logix | Enterprise-Grade Behavioral SIEM Engine
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Status: Production-Ready](https://img.shields.io/badge/Status-Production--Ready-success.svg)]()
 
@@ -119,8 +118,5 @@ The dashboard will be available at `http://localhost:5000`.
 Logix is built with modularity in mind. Security engineers can easily contribute new rules in `engine/rules/` or add correlation patterns in `engine/correlation.py`.
 
 ---
-
-## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Developed with ❤️ for the Security Community.
