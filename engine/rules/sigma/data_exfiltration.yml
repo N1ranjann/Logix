@@ -1,0 +1,19 @@
+title: Data Exfiltration Indicators
+description: Detects commands commonly used for data exfiltration via network
+status: stable
+logsource:
+    category: process_creation
+detection:
+    selection:
+        message:
+            - "*curl*-d*"
+            - "*wget --post*"
+            - "*scp *@*"
+            - "*rsync*"
+            - "*base64*|*curl*"
+            - "*tar*|*nc*"
+    condition: selection
+level: high
+tags:
+    - attack.exfiltration
+    - attack.t1048

@@ -1,0 +1,26 @@
+title: Web Shell Detection
+description: Detects shell processes spawned by web server processes, indicating potential web shell activity
+status: stable
+logsource:
+    category: process_creation
+    product: linux
+detection:
+    selection:
+        process_name:
+            - bash
+            - sh
+            - cmd.exe
+            - powershell.exe
+        parent_process:
+            - nginx
+            - apache2
+            - httpd
+            - w3wp.exe
+            - tomcat
+            - php-fpm
+            - node
+    condition: selection
+level: critical
+tags:
+    - attack.persistence
+    - attack.t1505.003

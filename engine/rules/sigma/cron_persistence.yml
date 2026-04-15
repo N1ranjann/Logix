@@ -1,0 +1,19 @@
+title: Cron Persistence
+description: Detects modifications to crontab or cron directories indicating persistence mechanisms
+status: stable
+logsource:
+    category: process_creation
+    product: linux
+detection:
+    selection:
+        message:
+            - "*crontab -e*"
+            - "*crontab -l*"
+            - "*/etc/cron*"
+            - "*at -f*"
+            - "*systemctl enable*"
+    condition: selection
+level: medium
+tags:
+    - attack.persistence
+    - attack.t1053.003

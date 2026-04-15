@@ -1,0 +1,19 @@
+title: Docker Container Escape Attempt
+description: Detects commands commonly used to escape Docker containers
+status: stable
+logsource:
+    category: process_creation
+detection:
+    selection:
+        message:
+            - "*docker.sock*"
+            - "*nsenter*"
+            - "*--privileged*"
+            - "*mount /dev*"
+            - "*chroot*"
+            - "*capsh --print*"
+    condition: selection
+level: critical
+tags:
+    - attack.privilege_escalation
+    - attack.t1611
