@@ -1,0 +1,17 @@
+title: SSH Brute Force
+description: Detects multiple SSH authentication failures indicating a brute force attack
+status: stable
+logsource:
+    category: authentication
+    product: linux
+detection:
+    selection:
+        event_type: authentication_failure
+        process_name:
+            - sshd
+            - ssh
+    condition: selection
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1110

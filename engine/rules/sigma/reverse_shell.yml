@@ -1,0 +1,21 @@
+title: Reverse Shell Indicators
+description: Detects command patterns commonly used for reverse shells
+status: stable
+logsource:
+    category: process_creation
+detection:
+    selection:
+        message:
+            - "*bash -i*"
+            - "*nc -e*"
+            - "*ncat -e*"
+            - "*/dev/tcp/*"
+            - "*python -c*import socket*"
+            - "*php -r*fsockopen*"
+            - "*perl -e*socket*"
+            - "*ruby -rsocket*"
+    condition: selection
+level: critical
+tags:
+    - attack.execution
+    - attack.t1059
